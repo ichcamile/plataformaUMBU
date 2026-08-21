@@ -1,214 +1,217 @@
-.Conteudo {
-    padding-top: 3vw;
-    margin-left: 19vw;
-    margin-right: 30vw;
-    width: 75vw;
-    position: fixed;
-    padding-bottom: 1vw;
-
+.layoutDashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--neutral-50);
 }
 
-
-.Conteudo .rectangle {
-    background-color: #ffffff;
-    border-radius: 25px;
-    box-shadow: 0px 4px 4px #00000040;
-    height: 39vw;
-    width: 75vw;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px
+.sidebarFixed {
+  position: fixed;
+  z-index: var(--z-sticky);
 }
 
-.Header {
-    margin-top: 2vw;
-    margin-left: 2vw;
-    margin-right: 3vw;
+.conteudoEditarPerfil {
+  flex: 1;
+  margin-left: 260px;
+  padding: var(--space-8);
+  display: flex;
+  justify-content: center;
 }
 
-.editarPerfil p {
-    color: #000000;
-    font-family: "Montserrat-SemiBold", Helvetica;
-    font-size: 2vw;
-    font-weight: 600;
-
-    line-height: normal;
-
-
+.cardEditarPerfil {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-8);
+  width: 100%;
+  max-width: 900px;
 }
 
-.Inf {
-    display: flex;
-    gap: 14vw;
-    margin-right: 0vw;
-
+.headerEditarPerfil {
+  margin-bottom: var(--space-8);
+  border-bottom: 2px solid var(--neutral-100);
+  padding-bottom: var(--space-4);
 }
 
-.editarPerfil label {
-    color: #1b1b1b;
-    font-family: "Montserrat-SemiBold", Helvetica;
-    font-size: 1vw;
-    font-weight: 600;
-
-    line-height: normal;
-
-    display: block;
-    margin-bottom: 1vw;
-    margin-top: 1vw;
+.headerEditarPerfil h2 {
+  color: var(--neutral-900);
+  font-size: var(--text-2xl);
+  font-weight: 700;
 }
 
-.editarPerfil input {
-    padding: 1vw;
-    width: 18vw;
-    height: 3vw;
-    border-color: #848484;
+.formEditarPerfil {
+  display: flex;
+  gap: var(--space-12);
 }
 
-#otherInput {
-    background-color: #ffffff;
-    border: 2px solid;
-    border-color: #848484;
-    border-radius: 5px;
-    height: 3vw;
-    width: 29vw;
+.colunaEsquerda {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
 }
 
-.Flex {
-    display: flex;
-    gap: 2vw;
+.colunaDireita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
 }
 
-.Flex .input1 {
-    margin-bottom: 2vw;
-    margin-top: 0vw;
-    display: block;
-    height: 3vw;
-    border-color: #848484;
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
 }
 
-.Flex .input2 {
-    margin-bottom: 1vw;
-    margin-top: 0vw;
-    height: 3vw;
-    display: block;
-    border-color: #848484;
+.inputGroup label {
+  font-weight: 600;
+  color: var(--neutral-700);
+  font-size: var(--text-sm);
 }
 
-.foto_inf {
-    padding-top: 2vh;
-    padding-bottom: 12vw
+.inputGroup input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
 }
 
-.fotoJ {
-    border-radius: 250px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.inputGroup input:focus {
+  outline: none;
+  border-color: var(--umbu-green-500);
+  box-shadow: 0 0 0 3px rgba(0, 104, 69, 0.1);
 }
 
-.foto_inf .fotoJ {
-    height: 11vw;
-    width: 11vw;
+.rowInputs {
+  display: flex;
+  gap: var(--space-4);
 }
 
-.Passinput {
-    padding-top: 1vw;
+.halfWidth {
+  flex: 1;
 }
 
-#ultimoInput {
-    padding-top: 1vw;
-    width: 16vw;
-    border-color: #848484;
+.inputWithIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.butt {
-    padding-top: 2vw;
-    display: flex;
-    gap: 1vw;
+.inputWithIcon input {
+  padding-right: var(--space-10);
 }
 
-.Cancel {
-    background-color: #ffffff;
-    border: 2px solid;
-    border-color: #00572E;
-    border-radius: 1vh;
-    height: 2vw;
-
-    width: 8vw;
+.iconStatus, .iconSelect {
+  position: absolute;
+  right: var(--space-3);
+  color: var(--neutral-500);
+  display: flex;
 }
 
-.Cancel {
-    color: #00572E;
-    font-family: "Roboto-Regular", Helvetica;
-    font-size: 1vw;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-
-
+.acoesFormulario {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
 }
 
-.Save {
-    background: #00572E;
-    border: 2px solid;
-    border-color: #00572E;
-    border-radius: 1vh;
-    height: 2vw;
-
-    width: 8vw;
+.btnCancelar {
+  background: var(--white);
+  color: var(--umbu-green-700);
+  border: 2px solid var(--umbu-green-700);
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.Save {
-    color: #ffffff;
-    font-family: "Roboto-Regular", Helvetica;
-    font-size: 1vw;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
+.btnCancelar:hover {
+  background: var(--umbu-green-50);
 }
 
-.input-container {
-    position: relative;
-    width: 18vw;
-   
+.btnSalvar {
+  background: var(--umbu-green-700);
+  color: var(--white);
+  border: 2px solid var(--umbu-green-700);
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.icon {
-    position: absolute;
-    top: 50%;
-    left: 90%;
-    transform: translateY(-50%);
+.btnSalvar:hover {
+  background: var(--umbu-green-800);
+  border-color: var(--umbu-green-800);
 }
 
-.icon_email {
-    position: absolute;
-    top: 50%;
-    left: 148%;
-    transform: translateY(-50%);
+.fotoContainer {
+  position: relative;
+  width: 160px;
+  height: 160px;
 }
 
-.icon_cidade {
-    position: absolute;
-    top: 50%;
-    left: 86%;
-    transform: translateY(-50%);
+.fotoPerfilEdit {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  border: 4px solid var(--white);
 }
 
-.icon_estado {
-    position: absolute;
-    top: 50%;
-    left: 86%;
-    transform: translateY(-50%);
+.btnEditarFoto {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  background: var(--umbu-green-700);
+  color: var(--white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
 }
 
-.icon-foto {
-    position: absolute;
-    top: 42%;
-    left: 84%;
-    transform: translateY(-50%);
-    font-size: 1vw;
-    color: #00572E;
+.btnEditarFoto:hover {
+  transform: scale(1.1);
 }
 
-.icon_foto {
-    position: absolute;
-    font-size: 2vw;
-    transform: translateY(-59%);
+@media screen and (max-width: 992px) {
+  .formEditarPerfil {
+    flex-direction: column-reverse;
+  }
+  
+  .colunaDireita {
+    border-bottom: 1px solid var(--neutral-200);
+    padding-bottom: var(--space-6);
+  }
+}
 
+@media screen and (max-width: 768px) {
+  .conteudoEditarPerfil {
+    margin-left: 0;
+    padding: var(--space-4);
+  }
+  
+  .rowInputs {
+    flex-direction: column;
+  }
+  
+  .acoesFormulario {
+    flex-direction: column;
+  }
+  
+  .btnCancelar, .btnSalvar {
+    width: 100%;
+  }
 }

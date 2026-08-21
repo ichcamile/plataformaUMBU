@@ -1,15 +1,13 @@
-import React from 'react'
-import "../superiorCard/superiorCard.css"
+import './superiorCard.css'
 
-
-function SuperiorCard({ fotoJar, nomeJar, cargo}) {
+function SuperiorCard({ fotoJar, nomeJar, cargo }) {
   return (
-      <div className='cardJardineiro' >
-        <img src={fotoJar} alt='Foto de perfil do jardineiro'/>
-        <h4>{nomeJar}</h4>
-        <h2>{cargo}</h2>
-      </div>
+    <div className="cardJardineiro">
+      <img src={fotoJar} alt={`Foto de ${nomeJar}`} />
+      <h4>{nomeJar}</h4>
+      <p className="cargoJardineiro">{cargo}</p>
+    </div>
   )
 }
 
-export default SuperiorCard;
+export default SuperiorCard

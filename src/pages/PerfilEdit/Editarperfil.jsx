@@ -1,125 +1,90 @@
-import React from 'react'
 import BarraLateral from '../../components/barraLateral/BarraLateral'
-import foto from "../../assets/jardineiroFoto.png";
-import { SlArrowDown } from "react-icons/sl";
-import { FcOk } from "react-icons/fc";
-import { FaPenToSquare } from "react-icons/fa6";
+import { SlArrowDown } from "react-icons/sl"
+import { FcOk } from "react-icons/fc"
+import { FaPenToSquare } from "react-icons/fa6"
 import './perfil.css'
 
-export default function Editarperfil() {
-    return (
-        <div className='editarPerfil'>
-            <div> <BarraLateral /></div>
+export default function EditarPerfil() {
+  return (
+    <div className="layoutDashboard">
+      <div className="sidebarFixed">
+        <BarraLateral />
+      </div>
 
-            <div className='Conteudo'>
-                <div className='rectangle'>
-                    <div className='Header'>
-                        <p> Edite seu perfil</p>
+      <div className="conteudoEditarPerfil">
+        <div className="cardEditarPerfil">
+          <div className="headerEditarPerfil">
+            <h2>Edite seu perfil</h2>
+          </div>
 
-                        <div className='Inf'>
+          <form className="formEditarPerfil">
+            <div className="colunaEsquerda">
+              <div className="inputGroup">
+                <label htmlFor="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="José Ferreira" />
+              </div>
 
+              <div className="inputGroup">
+                <label htmlFor="email">Email</label>
+                <div className="inputWithIcon">
+                  <input type="email" id="email" name="email" placeholder="jose.ferreira@gmail.com" />
+                  <span className="iconStatus"><FcOk /></span>
+                </div>
+              </div>
 
-                            <div className='Information'>
+              <div className="inputGroup">
+                <label htmlFor="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Rua Tito 54, Vila Romana" />
+              </div>
 
-                                <label for="nomeInput">Nome</label>
-                                <input type="text" id="nomeInput" name="nome" placeholder="Jose Ferreira"></input>
-
-
-
-                                <label for="emailInput">Email</label>
-
-                                <div className="input-container">
-                                    <span className="icon_email">
-                                        <FcOk />
-                                    </span>
-                                    <input
-                                        type="text"
-                                        id="otherInput"
-                                        name="email"
-                                        placeholder="Mehrabbozorgi.business@gmail.com"
-                                    />
-                                </div>
-
-
-                                <label for="endereçoInput">Endereço</label>
-                                <input type="text" id="otherInput" name="endereço" placeholder="Rua Tito 54, Vila Romana"></input>
-
-                                <div className='Flex'>
-
-                                    <div className='input1'>
-                                        <label className='Label2' for="cidadeInput">Cidade</label>
-
-                                        <div className="input-container">
-                                            <span className="icon_cidade">
-                                                <SlArrowDown />
-                                            </span>
-                                            <input className='Input2'
-                                                type="text"
-                                                id="doisInput"
-                                                name="cidade"
-                                                placeholder="São Paulo"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className='input2'>
-                                        <label className='Label2' id='labeldois' for="estadoInput">Estado</label>
-                                        <div className="input-container">
-                                            <span className="icon_estado">
-                                                <SlArrowDown />
-                                            </span>
-                                            <input className='Input2'
-                                                type="text"
-                                                id="doisInput"
-                                                name="cidade"
-                                                placeholder="São Paulo"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <label className='Passinput' for="PasswordInput">Senha</label>
-
-                                <div className="input-container">
-                                    <span className="icon">
-                                        <FcOk />
-                                    </span>
-                                    <input
-                                        type="text"
-                                        id="passwordInput"
-                                        name="password"
-                                        placeholder="Digite sua senha"
-                                    />
-                                </div>
-                                <div className='butt'>
-                                    <button className='Cancel'>Cancel</button>
-                                    <button className='Save'>Save</button>
-                                </div>
-
-                            </div>
-
-
-                            <div className='foto_inf'>
-                                <img className='fotoJ' src={foto} alt="" />
-                                <div className="icon-foto">
-                                    <span className="icon_foto">
-                                        <FaPenToSquare />
-                                    </span>
-                                </div>
-
-                                <label for="ContatoInput">Contato (Número de contato)</label>
-                                <input type="text" id="ultimoInput" name="Contato" placeholder="11 8002-8922"></input>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
+              <div className="rowInputs">
+                <div className="inputGroup halfWidth">
+                  <label htmlFor="cidade">Cidade</label>
+                  <div className="inputWithIcon">
+                    <input type="text" id="cidade" name="cidade" placeholder="São Paulo" />
+                    <span className="iconSelect"><SlArrowDown /></span>
+                  </div>
                 </div>
 
+                <div className="inputGroup halfWidth">
+                  <label htmlFor="estado">Estado</label>
+                  <div className="inputWithIcon">
+                    <input type="text" id="estado" name="estado" placeholder="SP" />
+                    <span className="iconSelect"><SlArrowDown /></span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="inputGroup">
+                <label htmlFor="senha">Senha</label>
+                <div className="inputWithIcon">
+                  <input type="password" id="senha" name="senha" placeholder="••••••••" />
+                  <span className="iconStatus"><FcOk /></span>
+                </div>
+              </div>
+
+              <div className="acoesFormulario">
+                <button type="button" className="btnCancelar">Cancelar</button>
+                <button type="submit" className="btnSalvar">Salvar</button>
+              </div>
             </div>
+
+            <div className="colunaDireita">
+              <div className="fotoContainer">
+                <img className="fotoPerfilEdit" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Foto de Perfil" />
+                <button type="button" className="btnEditarFoto">
+                  <FaPenToSquare />
+                </button>
+              </div>
+
+              <div className="inputGroup">
+                <label htmlFor="contato">Contato</label>
+                <input type="tel" id="contato" name="contato" placeholder="(11) 98002-8922" />
+              </div>
+            </div>
+          </form>
         </div>
-    )
+      </div>
+    </div>
+  )
 }

@@ -1,66 +1,103 @@
-import React from "react";
-import "./telaRegistroContratante3.css";
-import { IoIosArrowBack } from "react-icons/io";
-import { MdLockOutline } from "react-icons/md";
-import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react"
+import { IoIosArrowBack } from "react-icons/io"
+import { MdLockOutline } from "react-icons/md"
+import { useNavigate } from "react-router-dom"
+import "../../telasRegistro/telaRegistro3/telaRegistro3.css"
 
+export default function TelaRegistroContratante3() {
+  const navigate = useNavigate()
+  const [dataUser, setDataUser] = useState({
+    telefone: '',
+    endereco: '',
+    cidade: ''
+  })
 
-export default function telaRegistro3(props) {
-    const navigate = useNavigate();
+  const setUpdateAndress = (evento) => {
+    setDataUser({ ...dataUser, [evento.target.name]: evento.target.value })
+  }
 
-    return (
-        <div className="containerT3">
-            <div className="headerT3">
-                <span><IoIosArrowBack/> Voltar</span>
-                <div className="etapaT3">
-                    <p>Etapa 02/02</p>
-                    <strong>Informações Pessoais</strong>
-                </div>
-            </div>
+  const handleNext = (e) => {
+    e.preventDefault()
+    alert('Cadastro concluído com sucesso!')
+    navigate('/painelcontrole')
+  }
 
-            <form className="formT3">
-                <div className="topoRegistroT3">
-                    <span>Complete seu perfil</span>
-                    <p> Para fins de regulamentação do setor, seus dados são necessários.</p>
-                </div>
+  const cidades = [
+    "São Paulo", "Rio de Janeiro", "Brasília", "Fortaleza", 
+    "Salvador", "Belo Horizonte", "Manaus", "Curitiba", 
+    "Recife", "Goiânia", "Porto Alegre", "Belém", 
+    "Guarulhos", "Campinas", "São Luís", "Maceió", 
+    "Campo Grande", "São Gonçalo", "Teresina", "João Pessoa"
+  ]
 
-                <label className="labelRegistroT3">Número</label>
-                <input type="tel" name="tel" placeholder="Número de Telefone" id="telefone" className="Inputs" required/>
-
-                <label className="labelRegistroT3">Endereço</label>
-                <input type="text" className="Inputs" placeholder="Digite o seu endereço" required/>
-
-                <label className="labelRegistroT3">Cidade</label>
-                <select className="Inputs" required>
-                    <option value="" disabled selected>Selecione</option>
-                    <option value="SaoPaulo">São Paulo</option>
-                    <option value="RioDeJaneiro">Rio de Janeiro</option>
-                    <option value="Brasilia">Brasília</option>
-                    <option value="Fortaleza">Fortaleza</option>
-                    <option value="Salvador">Salvador</option>
-                    <option value="BeloHorizonte">Belo Horizonte</option>
-                    <option value="Manaus">Manaus</option>
-                    <option value="Curitiba">Curitiba</option>
-                    <option value="Recife">Recife</option>
-                    <option value="Goiania">Goiânia</option>
-                    <option value="PortoAlegre">Porto Alegre</option>
-                    <option value="Belem">Belém</option>
-                    <option value="Guarulhos">Guarulhos</option>
-                    <option value="Campinas">Campinas</option>
-                    <option value="SaoLuis">São Luís</option>
-                    <option value="Maceio">Maceió</option>
-                    <option value="CampoGrande">Campo Grande</option>
-                    <option value="SaoGoncalo">São Gonçalo</option>
-                    <option value="Teresina">Teresina</option>
-                    <option value="JoaoPessoa">João Pessoa</option>
-                </select>
-
-                <div className="botao-salvar">
-                    <button type="submit" className="salvar-continuar" onClick={ () => navigate('/painelcontrole')}>Salvar & Continuar</button>
-                    <span><MdLockOutline /> Suas informações estão protegidas com segurança</span>
-                </div>
-            </form>
-
+  return (
+    <div className="containerT3">
+      <form onSubmit={handleNext} className="formT3">
+        <div className="headerT3">
+          <button type="button" className="btnVoltaRegistro" onClick={() => window.history.back()}>
+            <IoIosArrowBack /> Voltar
+          </button>
+          <div className="etapaRegistro">
+            <p>Etapa 02/02</p>
+            <p>Informações Pessoais</p>
+          </div>
         </div>
+
+        <div className="topoRegistroT3">
+          <h3>Complete seu perfil</h3>
+          <p>Para fins de regulamentação do setor, seus dados são necessários.</p>
+        </div>
+
+        <div className="inputsContainerT3">
+          <label className="labelRegistroT3" htmlFor="telefone">Número de Telefone</label>
+          <input 
+            type="tel" 
+            name="telefone" 
+            id="telefone" 
+            placeholder="(00) 00000-0000" 
+            className="inputRegistroT3"  
+            value={dataUser.telefone} 
+            onChange={setUpdateAndress}
+            required  
+          />
+
+          <label className="labelRegistroT3" htmlFor="endereco">Endereço Completo</label>
+          <input 
+            type="text"  
+            name="endereco" 
+            id="endereco"
+            placeholder="Rua, Número, Bairro" 
+            className="inputRegistroT3" 
+            value={dataUser.endereco} 
+            onChange={setUpdateAndress}
+            required 
+          />
+
+          <label className="labelRegistroT3" htmlFor="cidade">Cidade</label>
+          <select 
+            name="cidade"
+            id="cidade"
+            className="inputRegistroT3" 
+            value={dataUser.cidade}
+            onChange={setUpdateAndress}
+            required
+          >
+            <option value="" disabled>Selecione sua cidade</option>
+            {cidades.map((cidade, i) => (
+              <option key={i} value={cidade}>{cidade}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="botao-salvar">
+          <button type="submit" className="btnRegistroPrincipal">
+            Salvar & Continuar
+          </button>
+          <span className="msgSeguranca">
+            <MdLockOutline /> Suas informações estão protegidas com segurança
+          </span>
+        </div>
+      </form>
+    </div>
   )
 }

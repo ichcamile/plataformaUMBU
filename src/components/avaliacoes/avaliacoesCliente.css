@@ -1,81 +1,81 @@
 .cardAvaliacao {
-    display: flex;
-    flex-direction: column;
-    width: 380px;
-    height: auto;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  padding-top: var(--space-12);
+  position: relative;
+  transition: all var(--transition-slow);
+  border: 1px solid transparent;
 }
 
-.cardFundo {
-    /* background-color: #006845; */
-    height: 150px;
-    border-radius: 20px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-.cardFundo p {
-    font-size: 16px;
-
-
+.cardAvaliacao:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 200, 0, 0.15);
 }
 
 .cardInformacoes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
 .cardInformacoes img {
-    margin-top: -45px;
-    width: 90px;
+  margin-top: -60px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-md);
 }
 
 .cardInformacoes h3 {
-    font-weight: 900;
-    margin-bottom: -5px;
-    color: #006845;
+  font-weight: 800;
+  color: var(--umbu-green-700);
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
 }
 
-.cardInformacoes p {
-    color: #818181;
+.tipoUsuario {
+  color: var(--neutral-400);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
 }
 
 .estrelas {
-    margin-top: -20px;
-
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
 }
 
 .estrelaUnica {
-    font-size: 25px;
-    color: #FFC700;
+  font-size: 20px;
+  color: var(--accent-gold);
 }
 
-.avalicoesClientes {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 70px;
-    font-size: 45px;
-    font-style: bold;
-    font-weight: 900;
-    color: #006845;
-
+.cardFundo {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--neutral-50);
+  border-radius: var(--radius-md);
+  text-align: center;
 }
 
-/* .tabelaPrecos {
-   width: 382px;
-   height: 301px;
-   border: 1px solid;
-   display: flex;
-   flex-direction: row;
-} */
+.cardFundo p {
+  font-size: var(--text-sm);
+  color: var(--neutral-600);
+  line-height: 1.7;
+  font-style: italic;
+}
 
+@media screen and (max-width: 768px) {
+  .cardAvaliacao {
+    width: 100%;
+    max-width: 340px;
+  }
+}

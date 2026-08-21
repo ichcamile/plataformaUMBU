@@ -1,118 +1,158 @@
-/* Planos UMBU */
-.planosUmbu{
-    display: flex;
+.planosUmbu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-20) var(--space-6);
+  min-height: 80vh;
+}
+
+.testeGratis {
+  text-align: center;
+}
+
+.testeGratis h2 {
+  font-size: clamp(1.8rem, 4vw, var(--text-5xl));
+  font-weight: 700;
+  color: var(--neutral-900);
+}
+
+.planosTextColor {
+  color: var(--umbu-green-300);
+  border-bottom: 4px solid var(--umbu-green-300);
+  padding-bottom: var(--space-2);
+}
+
+.umbuPremium {
+  text-align: center;
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-12);
+}
+
+.umbuPremium h3 {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.umbuPremium p {
+  font-size: var(--text-lg);
+  color: var(--neutral-600);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.planosTextColor2 {
+  color: var(--umbu-green-300);
+}
+
+.cardsPlanos {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.planCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--umbu-green-800), var(--umbu-green-900));
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-6);
+  width: 340px;
+  min-height: 380px;
+  color: var(--white);
+  transition: all var(--transition-slow);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.planCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 87, 46, 0.3);
+}
+
+.planCardRecommended {
+  border-color: var(--umbu-green-300);
+  transform: scale(1.05);
+}
+
+.planCardRecommended:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+.planoRecomendado {
+  position: absolute;
+  top: -14px;
+  background: linear-gradient(135deg, var(--umbu-green-300), var(--umbu-green-200));
+  color: var(--umbu-green-900);
+  padding: var(--space-1) var(--space-6);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.planCard h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+}
+
+.planDesc {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.planPrice {
+  margin-bottom: var(--space-6);
+}
+
+.priceValue {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+}
+
+.pricePeriod {
+  font-size: var(--text-lg);
+  opacity: 0.6;
+}
+
+.planButton {
+  padding: var(--space-3) var(--space-8);
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all var(--transition-base);
+}
+
+.planButton:hover {
+  background: var(--umbu-green-300);
+  border-color: var(--umbu-green-300);
+  color: var(--umbu-green-900);
+}
+
+@media screen and (max-width: 768px) {
+  .cardsPlanos {
     flex-direction: column;
     align-items: center;
-    background-color: rgb(255, 255, 255);
-    color: rgb(31, 31, 31);
-    text-align: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
+  }
 
-.planosUmbu h2{
-    font-size: 45px;
-    font-weight: 700;
-}
+  .planCard,
+  .planCardRecommended {
+    width: 100%;
+    max-width: 340px;
+    transform: none;
+  }
 
-.planosTextColor{
-    color: #00C800;
-    border-bottom: 4px solid #00C800;
-    padding-bottom: 12px;
-}
-
-.folhas {
-    display: flex;
-    justify-content: end;
-    width: 110%;
-    margin-bottom: -980px;
-}
-
-
-.folhas2 {
-    margin-right: auto;
-}
-
-.umbuPremium{
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
-
-.umbuPremium h3{
-    font-size: 50px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.umbuPremium p{
-    font-size: 20px;
-}
-
-.planosTextColor2{
-    color: #00C800;
-}
-
-.cardsPlanos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-}
-
-.card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 4px;
-    background: #00572E;
-    box-shadow: 0px 0px 4px 0px rgba(238, 236, 236, 0.05);
-    padding: 42px 24px 42px 24px; 
-    width: 382px;
-    height: 369px;
-}
-
-.planoRecomendado{
-    background-color: #178b17;
-    border-radius: 4px 4px 0px 0px;
-    padding: 5px 50px 5px 50px;
-    margin-top: -74px;
-    color: rgb(255, 255, 255);
-}
-
-.card h3 {
-    color: #ffffff;
-}
-
-.card span {
-    color: #B8B8B8
-}
-
-.card h4{
-    color: #ffffff;
-    text-align: center;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.tipoPlano{
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.card button{
-    color: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #ffffff;
-    width: 100px;
-    height: 50px;
-    background: transparent;
-    transition: 0.4s;
-}
-
-.card button:hover{
-    background: #00C800; 
+  .planCardRecommended:hover {
+    transform: translateY(-8px);
+  }
 }

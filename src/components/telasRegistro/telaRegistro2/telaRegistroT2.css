@@ -1,214 +1,185 @@
 .containerT2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-6);
+}
+
+.formT2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
 }
 
 .headerT2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-6);
 }
 
-.headerT2 span {
-    font-size: 14px;
-    color: #8692A6;
+.tituloFormRegistro {
+  margin-bottom: var(--space-6);
 }
 
-.etapa {
-    align-items: end;
-    display: flex;
-    flex-direction: column;
-    color: #8692A6;
+.tituloFormRegistro h2 {
+  color: var(--neutral-900);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
 }
 
-.etapa p {
-    font-size: 12px;
-    margin: 0px;
-    padding: 0px;
+.tituloFormRegistro h4 {
+  color: var(--neutral-500);
+  font-size: var(--text-base);
+  font-weight: 500;
 }
 
-.etapa strong {
-    font-size: 14px;
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
 }
 
-/* Forms */
-.formT2 {
-    color: #696F79;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding-left: 20px;
+.labelRegistro2 {
+  color: var(--neutral-700);
+  font-size: var(--text-sm);
+  font-weight: 600;
 }
 
-.formT2 h2 {
-    text-align: start;
-    color: black;
-    font-size: 25px;
-    font-weight: bold;
-    width: 100%;
+.inputRegistro {
+  width: 100%;
+  height: 52px;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--neutral-200);
+  padding: 0 var(--space-4);
+  background: var(--neutral-50);
+  transition: all var(--transition-fast);
+  margin-bottom: var(--space-2);
 }
 
-.formT2 h4 {
-    text-align: left;
-    color: #8692A6;
-    font-size: 16px;
-    font-weight: 600;
-    width: 100%;
+.inputRegistro:focus {
+  border-color: var(--umbu-green-300);
+  box-shadow: 0 0 0 3px rgba(0, 200, 0, 0.1);
+  background: var(--white);
 }
 
-.formT2 label{
-    display: flex;
-    justify-content: start;
-    width: 100%;
-    
-}
-
-.Inputs {
-    display: flex;
-    width: 80%;
-    height: 64px;
-    font-size: 14px;
-    border-radius: 15px;
-    margin-top: 10px;
-    border: 1px #8692A6 solid;
-    padding-left: 25px;
-    margin-bottom: 3%;
-}
-
-/* Botões */
-
-.botoes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding-top: 5%;
-    border: none;
-    height: 50%;
-    padding-bottom: 50px;
+.botoesRegistro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: auto;
 }
 
 .termos-de-uso {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
-
-.botoes button {
-    border: none;
+.termos-de-uso label {
+  color: var(--neutral-600);
+  font-size: var(--text-sm);
 }
 
-.Cadastro-Normal {
-    color: #FFFF;
-    display: flex;
-    align-items: center;
+.checkboxRegistro {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--umbu-green-700);
+}
+
+.btnRegistroPrincipal {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, var(--umbu-green-700), var(--umbu-green-800));
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--text-base);
+  transition: all var(--transition-base);
+}
+
+.btnRegistroPrincipal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 104, 69, 0.3);
+}
+
+.responsividadeBotoesRegistro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.btnFacebookRegistro,
+.btnGoogleRegistro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  height: 44px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: all var(--transition-base);
+  border: none;
+}
+
+.btnFacebookRegistro {
+  background-color: var(--accent-blue);
+  color: var(--white);
+}
+
+.btnFacebookRegistro:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btnGoogleRegistro {
+  background-color: var(--white);
+  color: var(--neutral-700);
+  border: 1.5px solid var(--neutral-200);
+}
+
+.btnGoogleRegistro:hover {
+  background-color: var(--neutral-50);
+  border-color: var(--neutral-300);
+  transform: translateY(-1px);
+}
+
+@media screen and (max-width: 1300px), (max-height: 700px) {
+  .inputRegistro {
+    height: 46px;
+  }
+  
+  .btnRegistroPrincipal {
+    height: 44px;
+  }
+
+  .responsividadeBotoesRegistro {
+    flex-direction: row;
     justify-content: center;
-    width: 50%;
-    height: 50px;
-    background: #006845;
-    border-radius: 40px;
-}
+  }
 
-.responsividadeBotoes{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
+  .btnFacebookRegistro,
+  .btnGoogleRegistro {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    padding: 0;
+  }
 
-.Cadastro-Facebook {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: #FFFF;
-    background-color: #1877F2;
-    width: 60%;
-    height: 40px;
-    font-size: 13px;
-    font-weight: 700;
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: 1s;
-}
-
-.Cadastro-Google {
-    color: rgba(0, 0, 0, 0.54);
-    background: #FFFFFF;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 60%;
-    height: 40px;
-    font-size: 15px;
-    font-weight: 500;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: 1s;
-}
-
-
-
-@media screen and (max-width: 1300px) , (max-height: 700px){
-    .Inputs{
-        height: 50px;
-    }
-
-    .Cadastro-Normal{
-        height: 40px;
-    }
-
-    .responsividadeBotoes{
-        flex-direction: row;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .responsividadeBotoes button{
-        display: flex;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        border-radius: 100px;
-    }
-     
-
-    .Cadastro-Facebook span{
-        display: none;
-    }
-
-    .Cadastro-Google span{
-        display: none;
-    }
-}
-    
-@media screen and (max-width: 768px){
-    .formT2{
-        padding: 0px;
-        align-items: center;
-    }
-
-    .Inputs{
-        margin-bottom: 20px;
-    }
-
-    .formT2 h4{
-        margin-bottom: 50px;
-    }
-
-    .formT2 label{
-        width: 80%;
-    }
+  .btnFacebookRegistro span,
+  .btnGoogleRegistro span {
+    display: none;
+  }
 }

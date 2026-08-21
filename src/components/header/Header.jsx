@@ -1,47 +1,106 @@
-import logotipo from "../../assets/Umbu.png";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import { Link } from 'react-router-dom';
-import "../header/header.css"
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { HiOutlineMenuAlt3 } from 'react-icons/hi'
+import { IoCloseOutline } from 'react-icons/io5'
+import logotipo from '../../assets/Umbu.png'
+import './header.css'
 
-export default function Header(){
-        const navigate = useNavigate();
-    
-    return(
-        <div className="containerHeader">
-            <header>
-                <div className="logotipo">
-                    <img src={logotipo}/>
-                </div>
-                <nav className="navegacao">
-                    <ul className="listNav">
-                        <li><Link to='/'>Home</Link></li>
-                        <li><a href='/umblog'>UMblog</a></li>
-                        <li><a href="/planos">Planos</a></li>
-                        <li><a href="/faleconosco">Fale conosco</a></li>
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-                    </ul>
-                </nav>
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location])
 
-                <div className="buttomLogin">
-                    <button type="button" class="btn btn-outline-success btn-sm" onClick={ () => navigate('/login')}   >Entrar</button>
-                    <button type="button" class="btn btn-success btn-sm" onClick={ () => navigate('/registro')}>Registre-se</button>
-                </div>
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/umblog', label: 'UMblog' },
+    { to: '/planos', label: 'Planos' },
+    { to: '/faleconosco', label: 'Fale conosco' },
+  ]
 
-                {/* Drop menu responsivo ao tamanho da tela */}
-                <DropdownButton id="dropdown-basic-button" title="Menu" variant="success" className="dropMenu">
-                    <Dropdown.Item><Link to="/">Home</Link></Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Serviços</Dropdown.Item>
-                    <Dropdown.Item href="/faleconosco">Fale conosco</Dropdown.Item>
-                    <Dropdown.Item><Link to="/umblog">UMblog</Link></Dropdown.Item>
-                    <Dropdown.Item href="/sobrenos">Sobre nós</Dropdown.Item>
-                    <Dropdown.Item href="/planos">Planos</Dropdown.Item>
-                    <hr/>
-                    <Dropdown.Item href="/registro">Login/Registro</Dropdown.Item>
-                </DropdownButton>
-            </header>    
-        </div>    
-    )
+  return (
+    <div className={`containerHeader ${scrolled ? 'headerScrolled' : ''}`}>
+      <header>
+        <Link to="/" className="logotipo">
+          <img src={logotipo} alt="UMBU Logo" />
+        </Link>
+
+        <nav className={`navegacao ${menuOpen ? 'navOpen' : ''}`}>
+          <ul className="listNav">
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className={location.pathname === link.to ? 'active' : ''}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="buttomLogin">
+          <button className="btn-outline" onClick={() => navigate('/login')}>
+            Entrar
+          </button>
+          <button className="btn-primary" onClick={() => navigate('/registro')}>
+            Registre-se
+          </button>
+        </div>
+
+        <button
+          className="menuToggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <IoCloseOutline /> : <HiOutlineMenuAlt3 />}
+        </button>
+
+        {/* Mobile overlay */}
+        {menuOpen && (
+          <div className="mobileOverlay" onClick={() => setMenuOpen(false)} />
+        )}
+
+        {/* Mobile menu */}
+        <div className={`mobileMenu ${menuOpen ? 'mobileMenuOpen' : ''}`}>
+          <ul>
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className={location.pathname === link.to ? 'active' : ''}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li className="mobileMenuDivider" />
+            <li>
+              <Link to="/sobrenos">Sobre nós</Link>
+            </li>
+            <li className="mobileMenuButtons">
+              <button className="btn-outline" onClick={() => navigate('/login')}>
+                Entrar
+              </button>
+              <button className="btn-primary" onClick={() => navigate('/registro')}>
+                Registre-se
+              </button>
+            </li>
+          </ul>
+        </div>
+      </header>
+    </div>
+  )
 }

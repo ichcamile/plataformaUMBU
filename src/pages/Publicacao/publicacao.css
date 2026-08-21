@@ -1,72 +1,164 @@
-.pageLB{
-   max-height: 100%; 
-    background-color: white;
+.layoutDashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--neutral-50);
 }
 
-.publicacao {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    width: 800px;
-    height: 600px;
-    background-color: rgb(205, 205, 205);
-    margin: auto;
-    border-radius: 30px;
+.sidebarFixed {
+  position: fixed;
+  z-index: var(--z-sticky);
 }
 
-.tituloLB {
-    display: flex;
-    justify-content: center;
-    padding-top: 3%;
-    color: #00572E;
-    font-weight: bold;
+.conteudoPublicacao {
+  flex: 1;
+  margin-left: 260px;
+  padding: var(--space-12) var(--space-8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.iconLB {
-    color: #006946;
-    font-size: 150px;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
+.publicacaoContainer {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-
-.textoMaiorLB {
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+.headerPublicacao {
+  padding: var(--space-6) var(--space-8);
+  border-bottom: 1px solid var(--neutral-200);
+  text-align: center;
 }
 
-.textoMenorLB {
-    color: #00572E;
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
+.tituloPublicacao {
+  color: var(--umbu-green-800);
+  font-size: var(--text-2xl);
+  font-weight: 800;
 }
 
-.alingBottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 40px;
+.uploadArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-8);
+  background: var(--neutral-50);
+  border: 2px dashed var(--umbu-green-300);
+  border-radius: var(--radius-xl);
+  margin: var(--space-8);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.uploadArea:hover {
+  background: var(--umbu-green-50);
+  border-color: var(--umbu-green-500);
+}
+
+.iconUpload {
+  color: var(--umbu-green-600);
+  font-size: 80px;
+  margin-bottom: var(--space-4);
+  transition: transform var(--transition-base);
+}
+
+.uploadArea:hover .iconUpload {
+  transform: scale(1.1);
+}
+
+.textoUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.textoDestaqueUpload {
+  color: var(--neutral-900);
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.textoSecundarioUpload {
+  color: var(--neutral-500);
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.footerPublicacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-8);
+  background: var(--neutral-100);
+  border-top: 1px solid var(--neutral-200);
+}
+
+.dicaMobile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 60%;
+}
+
+.iconMobile {
+  font-size: 32px;
+  color: var(--umbu-green-700);
+  flex-shrink: 0;
+}
+
+.dicaMobile p {
+  color: var(--neutral-700);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.btnPublicar {
+  background: linear-gradient(135deg, var(--umbu-green-700), var(--umbu-green-800));
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-8);
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.btnPublicar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: var(--umbu-green-600);
+}
+
+@media screen and (max-width: 768px) {
+  .conteudoPublicacao {
+    margin-left: 0;
+    padding: var(--space-4);
+  }
+
+  .sidebarFixed {
+    display: none;
+  }
   
-}
-
-.textBottom {
-    display: flex;
-    align-items: flex-end;
-}
-
-.celularIcon {
-    font-size: 50px;
-}
-
-.botaoPublicar {
-    background-color: #006946;
-    border-radius: 20px;
-    height: 45px;
-    width: 160px;
-    color: white;
+  .footerPublicacao {
+    flex-direction: column;
+    gap: var(--space-6);
+    text-align: center;
+  }
+  
+  .dicaMobile {
+    max-width: 100%;
+    flex-direction: column;
+  }
+  
+  .btnPublicar {
+    width: 100%;
+  }
 }

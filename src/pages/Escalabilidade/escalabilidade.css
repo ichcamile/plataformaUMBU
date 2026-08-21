@@ -1,87 +1,98 @@
+.pageEscalabilidade {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--neutral-50);
+}
+
+.mainEscalabilidade {
+  flex: 1;
+  width: 100%;
+}
+
+.carouselEscalabilidade {
+  width: 100%;
+  margin-bottom: var(--space-12);
+}
+
 .escalabilidadeSwiper {
-    width: 100%;
-    display: flex;
-    margin: auto;
-    margin-bottom: 100px;
-    --swiper-theme-color: #00C800;
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  --swiper-theme-color: var(--umbu-green-500);
+  --swiper-pagination-bullet-inactive-color: var(--white);
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
 }
 
-.escalabilidadeSwiper img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.slideUmbuNosJardins {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-12);
 }
 
-.slideUmbuNosJardins{
-    width: 100%;
-    height: 80vh;
+.imageBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
-.tituloSlider{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-weight: 700;
-    font-size: 32px;
-    position: absolute;
-    z-index: 2;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    justify-content: end;
-    padding-bottom: 80px;
-    padding-left: 80px;
+.slideOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+  z-index: 2;
 }
 
-.image{
-    position: absolute;
-    z-index: 1;
-    filter: blur(0px);
-
+.tituloSlider {
+  position: relative;
+  z-index: 3;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, var(--text-5xl));
+  font-weight: 800;
+  max-width: 800px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.detalheTitulo{
-    color:#16A016;
+.detalheTitulo {
+  color: var(--umbu-green-400);
+  display: block;
+  font-size: clamp(1.2rem, 2vw, var(--text-2xl));
+  margin-bottom: var(--space-2);
 }
 
-.carouselEscalabilidade{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
+.conteudoEscalabilidade {
+  max-width: 900px;
+  margin: 0 auto var(--space-16);
+  padding: 0 var(--space-6);
+  text-align: center;
 }
 
-.descricaoEscalabilidade{
-    font-size: 20px;
-    max-width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    text-align: justify;
+.conteudoEscalabilidade h2 {
+  color: var(--umbu-green-800);
+  font-size: clamp(2.5rem, 4vw, var(--text-5xl));
+  font-weight: 800;
+  margin-bottom: var(--space-6);
 }
 
-.tituloCaroussel h2{
-    gap: 10px;
-    display: flexbox;
-    flex-direction: row;
+.conteudoEscalabilidade p {
+  color: var(--neutral-700);
+  font-size: var(--text-xl);
+  line-height: 1.8;
+  font-weight: 400;
 }
 
-.conteudoEscalabilidade{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-bottom: 50px;
-    width: 80%;
-    font-size: 22px;
-    margin-bottom: 100px;
-}
-
-
-.conteudoEscalabilidade h2{
-    color: #00572E;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+@media screen and (max-width: 768px) {
+  .slideUmbuNosJardins {
+    padding: var(--space-8) var(--space-6);
+  }
 }

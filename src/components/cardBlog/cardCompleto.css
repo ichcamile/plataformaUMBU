@@ -1,62 +1,81 @@
 .cardCompleto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    width: 300px;
-    height: 450px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 20px;
-    padding: 0px 0px 5px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+  height: 480px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  border: 1px solid var(--neutral-200);
 }
 
-.cardCompleto img {
-    display: flex;
-    width: 100%;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    object-fit: cover;
-    border-radius: 20px 20px 0px 0px;
-    margin-bottom: 5px;
+.cardCompleto:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--umbu-green-200);
+}
 
+.cardImagem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardImagem img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.cardTextos {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  flex: 1;
 }
 
 .tituloMateria {
-    font-weight: 700;
-    color: #006845;
-    margin: auto;
-
+  font-weight: 800;
+  color: var(--umbu-green-800);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
 }
 
 .dataPublicacao {
-    color: #858585;
-    margin: auto;
+  color: var(--neutral-400);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
 }
 
 .descricaoCard {
-    display: flex;
-    text-align: center;
-    margin: 5px;
-    color: #666666;
+  color: var(--neutral-600);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.restanteCard {
+  padding: 0 var(--space-5) var(--space-5);
 }
 
 .botaoClica {
-    width: 200px;
-    background-color: #34A853;
-    color: #ffffff;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 7px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--umbu-green-700), var(--umbu-green-800));
+  color: var(--white);
+  padding: var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-
 .botaoClica:hover {
-    background-color: #2e7d32; /* Tom mais escuro ao passar o mouse */
-
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 104, 69, 0.25);
 }

@@ -1,11 +1,8 @@
 import "../CodePortfolio/Portfolio.css"
-import React from 'react'
 
-function Fotos(props) {
+function Fotos({ foto }) {
   return (
-    <div className="posicaoFotos">
-      <img className='imagens' src={props.foto} />
-    </div>
+    <img src={foto} alt="Trabalho do portfólio" loading="lazy" />
   )
 }
 

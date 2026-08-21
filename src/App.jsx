@@ -1,71 +1,79 @@
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './App.css'
 
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
-// Import das Rotas
-import LandingPage from './pages/landingPage/LandingPage';
-import Notificacoes from './pages/Notificacoes/Notificacoes.jsx';
-import Escalabilidade from "./pages/Escalabilidade/Escalabilidade.jsx"
-import Dashboard from './pages/dashboard/Dashboard.jsx';
-import Umchat from './components/umchat/UMChat.jsx';
-// import AbaDeAvaliacoes from './components/AbaDeAvaliações/AbaDeAvaliacoes.jsx';
-import IdentidadeVisual from "./pages/IdentidadeVisual/IdentidadeVisualTela.jsx";
-import Registro from "./pages/registro/Registro.jsx";
-import Umblog from "./pages/umblog/UmblogF.jsx"
-import TesteCompetencia from './pages/testeCompetencia/TesteCompetencia.jsx';
-import ElasPlantam from './pages/ElasPlantam/ElasPlantam.jsx';
-import Login from './pages/login/Login.jsx';
-import Publi from './pages/Publicacao/Publicacao.jsx';
-import Faleconosco from './pages/faleconosco/Faleconosco.jsx';
-import Editarperfil from './pages/PerfilEdit/Editarperfil.jsx';
-import Perfil from './pages/perfil/Perfil.jsx'
-import Requerimento from './pages/requerimentoServicos/Requerimento.jsx';
-import SobreNos from './pages/SobreNos/Sobrenos.jsx';
-import Planos  from  './pages/Planos/Planos.jsx';
-
-
-function App() {
+// Loading component
+function LoadingFallback() {
   return (
-
-    <div className="rotas">
-      <BrowserRouter>
-        <Routes>
-
-          <Route path='/' Component={LandingPage} />
-          <Route path='/painelcontrole' Component={Dashboard} />
-          <Route path='/escalabilidade' Component={Escalabilidade} />
-          <Route path='/identidade' Component={IdentidadeVisual} />
-          <Route path='/login' Component={Login}/>
-          <Route path='/notificacoes' Component={Notificacoes} />
-          <Route path='/perfil' Component={Perfil} />
-          <Route path='/chat' Component={Umchat} />
-          <Route path='/umblog' Component={Umblog} />
-          <Route path='/registro' Component={Registro} />
-          <Route path='/elasplantam' Component={ElasPlantam} />
-          <Route path='/editar' Component={Editarperfil} />
-          <Route path='/testeConhecimento' Component={TesteCompetencia} />
-          <Route path='/publicar' Component={Publi} />
-         <Route path='/faleconosco' Component={Faleconosco} /> 
-          <Route path='/editarperfil' Component={Editarperfil} /> 
-          <Route path='/requerimento' Component={Requerimento} />
-          <Route path='/sobrenos' Component={SobreNos} />           
-          <Route path='/planos' Component={Planos} /> 
-
-        
-        </Routes>
-      </BrowserRouter>
-
-
+    <div className="loading-container">
+      <div className="loading-spinner" />
+      <span className="loading-text">Carregando...</span>
     </div>
-
   )
 }
 
-export default App;
+// Lazy-loaded pages
+const LandingPage = lazy(() => import('./pages/landingPage/LandingPage'))
+const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))
+const Escalabilidade = lazy(() => import('./pages/Escalabilidade/Escalabilidade'))
+const IdentidadeVisual = lazy(() => import('./pages/IdentidadeVisual/IdentidadeVisualTela'))
+const Login = lazy(() => import('./pages/login/Login'))
+const Notificacoes = lazy(() => import('./pages/Notificacoes/Notificacoes'))
+const Perfil = lazy(() => import('./pages/perfil/Perfil'))
+const Umchat = lazy(() => import('./components/umchat/UMChat'))
+const Umblog = lazy(() => import('./pages/umblog/UmblogF'))
+const Registro = lazy(() => import('./pages/registro/Registro'))
+const ElasPlantam = lazy(() => import('./pages/ElasPlantam/ElasPlantam'))
+const Editarperfil = lazy(() => import('./pages/PerfilEdit/Editarperfil'))
+const TesteCompetencia = lazy(() => import('./pages/testeCompetencia/TesteCompetencia'))
+const Publi = lazy(() => import('./pages/Publicacao/Publicacao'))
+const Faleconosco = lazy(() => import('./pages/faleconosco/Faleconosco'))
+const Requerimento = lazy(() => import('./pages/requerimentoServicos/Requerimento'))
+const SobreNos = lazy(() => import('./pages/SobreNos/Sobrenos'))
+const Planos = lazy(() => import('./pages/Planos/Planos'))
 
+// 404 Page
+function NotFound() {
+  return (
+    <div className="loading-container" style={{ gap: '1rem' }}>
+      <h1 style={{ fontSize: '5rem', color: 'var(--umbu-green-300)', fontWeight: 800 }}>404</h1>
+      <p style={{ fontSize: '1.25rem', color: 'var(--neutral-600)' }}>Página não encontrada</p>
+      <a href="/" className="btn-primary" style={{ marginTop: '1rem' }}>
+        Voltar ao Início
+      </a>
+    </div>
+  )
+}
 
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/painelcontrole" element={<Dashboard />} />
+          <Route path="/escalabilidade" element={<Escalabilidade />} />
+          <Route path="/identidade" element={<IdentidadeVisual />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/notificacoes" element={<Notificacoes />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/chat" element={<Umchat />} />
+          <Route path="/umblog" element={<Umblog />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/elasplantam" element={<ElasPlantam />} />
+          <Route path="/editar" element={<Editarperfil />} />
+          <Route path="/testeConhecimento" element={<TesteCompetencia />} />
+          <Route path="/publicar" element={<Publi />} />
+          <Route path="/faleconosco" element={<Faleconosco />} />
+          <Route path="/editarperfil" element={<Editarperfil />} />
+          <Route path="/requerimento" element={<Requerimento />} />
+          <Route path="/sobrenos" element={<SobreNos />} />
+          <Route path="/planos" element={<Planos />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  )
+}
+
+export default App

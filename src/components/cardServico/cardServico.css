@@ -1,46 +1,67 @@
+.CardServico {
+  border-radius: var(--radius-lg);
+  width: 320px;
+  padding: var(--space-8) var(--space-6);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 87, 46, 0.08);
+  transition: all var(--transition-slow);
+  cursor: pointer;
+}
+
+.CardServico:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 87, 46, 0.15);
+  border-color: rgba(0, 200, 0, 0.2);
+}
+
+.cardServicoInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .iconesServicos {
-    font-size: 90px;
-    color: #51C601;
-    display: flex;
-    justify-content: center;
-    margin-top: -55px;
+  font-size: 64px;
+  color: var(--umbu-green-200);
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4);
+  background: linear-gradient(135deg, rgba(0, 200, 0, 0.08), rgba(81, 198, 1, 0.08));
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
 
-
+.CardServico:hover .iconesServicos {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(0, 200, 0, 0.15), rgba(81, 198, 1, 0.15));
 }
 
 .servicoTitulo {
-    color: #00572E;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 800;
-    text-align: center;
-    line-height: normal;
+  color: var(--umbu-green-800);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  text-align: center;
 }
 
 .descricaoTitulo {
-    color: #00572E;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    margin: 10px;
-}
-
-.CardServico {
-    border-radius: 15px;
-    width: 350px;
+  color: var(--neutral-600);
+  font-size: var(--text-sm);
+  text-align: center;
+  line-height: 1.6;
 }
 
 .cardsDisplay {
-    max-width: 95%;
-    display: flex;
-    justify-content: space-evenly ;
-    margin: 50px;
-    margin-bottom: 150px;
-    margin-top: 100px;
+  max-width: 100%;
+  padding: var(--space-8) var(--space-6);
+  margin-bottom: var(--space-16);
+  margin-top: var(--space-12);
 }
 
+.cardsDisplay .swiper-slide {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}

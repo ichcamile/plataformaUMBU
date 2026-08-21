@@ -1,15 +1,11 @@
-
-
-export default function Contatos(props) {
-    return (
-        <div>
-            <div className="contatos">
-                <img src={props.iconesContatos}></img>
-                <div className="nome-dataContatos">
-                    <p className="nomeContato">{props.nomeContato}</p>
-                    <p className="dataMensagem">{props.dataMensagem}</p>
-                </div>
-            </div>
-        </div>
-    )
-}   
+export default function Contatos({ iconesContatos, nomeContato, dataMensagem }) {
+  return (
+    <div className="contatos">
+      <img src={iconesContatos} alt={`Foto de perfil de ${nomeContato}`} />
+      <div className="nome-dataContatos">
+        <p className="nomeContato">{nomeContato}</p>
+        <p className="dataMensagem">{dataMensagem}</p>
+      </div>
+    </div>
+  )
+}

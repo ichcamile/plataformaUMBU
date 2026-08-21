@@ -1,29 +1,45 @@
 .cardJardineiro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-6) var(--space-4);
+  border-bottom: 1px solid var(--neutral-200);
 }
 
 .cardJardineiro h4 {
-    font-size: 22px;
-    color: #006545;
-    height: 900;
-    margin: 5px;
+  font-size: var(--text-lg);
+  color: var(--umbu-green-700);
+  font-weight: 700;
+  margin-top: var(--space-3);
 }
 
-.cardJardineiro h2 {
-    font-size: 17px;
-    color: grey ; 
-
+.cargoJardineiro {
+  font-size: var(--text-sm);
+  color: var(--neutral-400);
+  font-weight: 400;
 }
 
 .cardJardineiro img {
-    border-radius: 250px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--umbu-green-100);
+  box-shadow: var(--shadow-md);
 }
 
+.containerActive {
+  background: rgba(0, 104, 69, 0.1);
+}
 
+.containerActive a {
+  font-weight: 700;
+}
 
+.container a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}

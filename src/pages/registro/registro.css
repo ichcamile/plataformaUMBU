@@ -1,35 +1,31 @@
-.conteudoRegistro1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #EFF3F6;
+.conteudoRegistro1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-50) 100%);
+  min-height: 100vh;
+  padding: var(--space-6);
+}
+
+.registroCard {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  height: 85vh;
+  max-height: 700px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+  animation: scaleIn 0.5s ease;
+}
+
+@media screen and (max-width: 920px) {
+  .registroCard {
+    width: 100%;
     height: 100vh;
-}
-
-.login{
-    display: flex;
-    justify-content: center;
-    width: 60vw;
-    height: 80vh;
-    padding: 10px;
-    border: 1px solid #F5F5F5;
-    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
-    border-radius: 10px;
-    background-color: white;
-}
-
-/* Breakpoint para celular */
-@media screen and (max-width: 920px){
-    .login{
-        width: 100vw;
-        height: 100vh;
-        border: none;
-        box-shadow: none;
-    }
-    
-    .tentativadeSwiper{
-        display: none;
-        transition: 1s;
-    }
-
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }

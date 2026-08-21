@@ -1,4 +1,4 @@
-import React from 'react';
+;
 
 export default function RequerimentoServicoE1(props) {
 

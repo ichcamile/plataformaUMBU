@@ -1,21 +1,32 @@
-/* Testes com o framework: Swiper */
-.tentativadeSwiper{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.tentativadeSwiper {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
 }
 
-.itemSlides{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+.itemSlides {
+  width: 100%;
+  height: 100%;
 }
 
-.tamanhoImage{
-    height: 100%;
-    object-fit: cover; 
+.itemSlides .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tamanhoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 920px) {
+  .tentativadeSwiper {
+    display: none;
+  }
 }

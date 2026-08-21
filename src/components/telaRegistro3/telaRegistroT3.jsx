@@ -1,4 +1,4 @@
-import React from "react";
+;
 import "../telaRegistro3/telaRegistroT3.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLockOutline } from "react-icons/md";

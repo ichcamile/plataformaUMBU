@@ -1,17 +1,17 @@
-import React from 'react'
-import "../barraLateral.css"
-
+import { Link, useLocation } from 'react-router-dom'
 
 function ItemBarra({ iconUrl, nome, rota }) {
+  const location = useLocation()
+  const isActive = location.pathname === rota
+
   return (
-    <div>
-      <li className="container" >
-        <a href={rota}><span className="iconUrl">{iconUrl}</span>
-          <span className="categories" >{nome}</span>
-        </a>
-      </li>
-    </div>
+    <li className={`container ${isActive ? 'containerActive' : ''}`}>
+      <Link to={rota}>
+        <span className="iconUrl">{iconUrl}</span>
+        <span className="categories">{nome}</span>
+      </Link>
+    </li>
   )
 }
 
-export default ItemBarra;
+export default ItemBarra
