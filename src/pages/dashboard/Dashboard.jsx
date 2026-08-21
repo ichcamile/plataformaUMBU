@@ -4,10 +4,12 @@ import { BiMessage } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 import { IoMdPhotos } from 'react-icons/io'
 import { MdOutlineWorkOutline, MdDashboard } from 'react-icons/md'
+import { useGlobal } from '../../context/GlobalContext'
 import './dashboard.css'
 
 function Dashboard() {
   const navigate = useNavigate()
+  const { user } = useGlobal()
 
   const cards = [
     {
@@ -49,17 +51,17 @@ function Dashboard() {
       <main className="conteudoDashboard">
         <header className="dashHeader animate-fade-in-up">
           <div className="dashWelcome">
-            <h1><MdDashboard className="titleIcon" /> Bem-vindo de volta! 🌿</h1>
+            <h1><MdDashboard className="titleIcon" /> Bem-vindo(a), {user.name.split(' ')[0]}! 🌿</h1>
             <p>Seu centro de controle para prosperar na plataforma UMBU.</p>
           </div>
           <div className="dashStats">
             <div className="statItem glass">
               <span className="statLabel">Visualizações</span>
-              <span className="statValue">124</span>
+              <span className="statValue">{user.stats.views}</span>
             </div>
             <div className="statItem glass">
               <span className="statLabel">Avaliação</span>
-              <span className="statValue">4.9 ★</span>
+              <span className="statValue">{user.stats.rating} ★</span>
             </div>
           </div>
         </header>

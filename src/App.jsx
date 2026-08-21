@@ -20,8 +20,8 @@ const IdentidadeVisual = lazy(() => import('./pages/IdentidadeVisual/IdentidadeV
 const Login = lazy(() => import('./pages/login/Login'))
 const Notificacoes = lazy(() => import('./pages/Notificacoes/Notificacoes'))
 const Perfil = lazy(() => import('./pages/perfil/Perfil'))
-const Umchat = lazy(() => import('./components/umchat/UMChat'))
-const Umblog = lazy(() => import('./pages/umblog/UmblogF'))
+const ChatPage = lazy(() => import('./pages/umchat/ChatPage'))
+const BlogPage = lazy(() => import('./pages/umblog/BlogPage'))
 const Registro = lazy(() => import('./pages/registro/Registro'))
 const ElasPlantam = lazy(() => import('./pages/ElasPlantam/ElasPlantam'))
 const Editarperfil = lazy(() => import('./pages/PerfilEdit/Editarperfil'))
@@ -57,8 +57,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/notificacoes" element={<Notificacoes />} />
           <Route path="/perfil" element={<Perfil />} />
-          <Route path="/chat" element={<Umchat />} />
-          <Route path="/umblog" element={<Umblog />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/umblog" element={<BlogPage />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/elasplantam" element={<ElasPlantam />} />
           <Route path="/editar" element={<Editarperfil />} />

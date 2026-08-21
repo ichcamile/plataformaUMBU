@@ -1,6 +1,7 @@
 .chatLayout {
   display: flex;
   height: 100vh;
+  width: 100%;
   background: var(--neutral-50);
   font-family: var(--font-secondary);
   overflow: hidden;

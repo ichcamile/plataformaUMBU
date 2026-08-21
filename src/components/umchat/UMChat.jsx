@@ -3,6 +3,8 @@ import { MdOutlineEmojiEmotions, MdMoreVert, MdPhone, MdVideocam } from 'react-i
 import { BsMic, BsSend, BsPaperclip } from 'react-icons/bs'
 import { FaArrowLeft } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import { useGlobal } from '../../context/GlobalContext'
+import ImageWithFallback from '../common/ImageWithFallback'
 import './UMChat.css'
 
 const initialContacts = [
@@ -13,13 +15,11 @@ const initialContacts = [
 ]
 
 export default function UMChat() {
+  const { chatContacts, chatMessages, sendMessage, markAsRead } = useGlobal()
   const [mensagem, setMensagem] = useState('')
-  const [mensagens, setMensagens] = useState([
-    { id: 1, texto: "Olá Rafaela! Gostaria de um orçamento para meu jardim de inverno.", enviado: true, time: "10:30" },
-    { id: 2, texto: "Claro! Pode me enviar algumas fotos do espaço?", enviado: false, time: "10:35" },
-    { id: 3, texto: "Podemos agendar a visita?", enviado: false, time: "10:42" }
-  ])
-  const [activeContact, setActiveContact] = useState(initialContacts[0])
+  const [activeContact, setActiveContact] = useState(chatContacts[0])
+  
+  const mensagens = chatMessages[activeContact.id] || []
   
   const messagesEndRef = useRef(null)
   const navigate = useNavigate()
@@ -34,9 +34,7 @@ export default function UMChat() {
 
   const handleSend = () => {
     if (mensagem.trim()) {
-      const now = new Date()
-      const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`
-      setMensagens([...mensagens, { id: Date.now(), texto: mensagem, enviado: true, time: timeString }])
+      sendMessage(activeContact.id, mensagem)
       setMensagem('')
     }
   }
@@ -62,14 +60,17 @@ export default function UMChat() {
         </div>
 
         <div className="contactsList">
-          {initialContacts.map(contact => (
+          {chatContacts.map(contact => (
             <div 
               key={contact.id} 
               className={`contactCard ${activeContact.id === contact.id ? 'active' : ''}`}
-              onClick={() => setActiveContact(contact)}
+              onClick={() => {
+                setActiveContact(contact)
+                markAsRead(contact.id)
+              }}
             >
               <div className="contactAvatarWrapper">
-                <img src={contact.avatar} alt={contact.name} />
+                <ImageWithFallback src={contact.avatar} alt={contact.name} fallbackText={contact.name} />
                 <div className="statusDot online"></div>
               </div>
               <div className="contactInfo">
@@ -92,7 +93,7 @@ export default function UMChat() {
         {/* Chat Header */}
         <header className="chatHeader glass">
           <div className="activeContactInfo">
-            <img src={activeContact.avatar} alt={activeContact.name} className="headerAvatar" />
+            <ImageWithFallback src={activeContact.avatar} alt={activeContact.name} fallbackText={activeContact.name} className="headerAvatar" />
             <div className="headerContactDetails">
               <h3>{activeContact.name}</h3>
               <span>{activeContact.role} • Online agora</span>
@@ -114,7 +115,7 @@ export default function UMChat() {
           {mensagens.map((msg) => (
             <div key={msg.id} className={`messageRow ${msg.enviado ? 'sentRow' : 'receivedRow'}`}>
               {!msg.enviado && (
-                <img src={activeContact.avatar} alt="Avatar" className="messageAvatar" />
+                <ImageWithFallback src={activeContact.avatar} alt="Avatar" fallbackText={activeContact.name} className="messageAvatar" />
               )}
               <div className={`messageBubble ${msg.enviado ? 'sentBubble' : 'receivedBubble'}`}>
                 <p>{msg.texto}</p>
