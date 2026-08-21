@@ -2,21 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--umbu-green-600) 0%, var(--umbu-green-800) 100%);
+  background: var(--neutral-950);
   flex-direction: column;
   text-align: center;
-  padding: var(--space-12) var(--space-6) var(--space-8);
-  color: rgba(255, 255, 255, 0.7);
+  padding: var(--space-20) var(--space-6) var(--space-8);
+  color: var(--neutral-400);
   font-size: var(--text-base);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footerContent {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   padding-bottom: var(--space-12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   gap: var(--space-12);
 }
 
