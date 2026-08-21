@@ -20,5 +20,11 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.5.2",
     "vite": "^6.3.5"
+  },
+  "overrides": {
+    "@formspree/react": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }
